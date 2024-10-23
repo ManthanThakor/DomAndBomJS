@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.outer,
+.middle,
+.inner {
+  padding: 20px;
+  margin: 10px;
+  border: 2px solid black;
+}
+
+.outer {
+  background-color: lightcoral;
+}
+
+.middle {
+  background-color: lightblue;
+}
+
+.inner {
+  background-color: lightgreen;
+}
