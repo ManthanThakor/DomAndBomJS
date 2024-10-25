@@ -172,3 +172,80 @@ const info2 = `
     `;
 
 document.getElementById("browser-info").innerHTML = info2;
+
+//=====================
+// Popup box
+//=====================
+
+// Alert example
+function showAlert() {
+  alert("This is an alert message!");
+}
+
+// Confirm example
+function showConfirm() {
+  let result = confirm("Are you sure you want to proceed?");
+  if (result) {
+    console.log("User clicked OK");
+  } else {
+    console.log("User clicked Cancel");
+  }
+}
+
+// Prompt example
+function showPrompt() {
+  let name = prompt("Please enter your name:", "Default Name");
+  if (name !== null) {
+    console.log("User entered: " + name);
+  } else {
+    console.log("User canceled the prompt.");
+  }
+}
+
+//=====================
+// geolocation
+//=====================
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition((position) => {
+    console.log("Latitude: " + position.coords.latitude);
+    console.log("Longitude: " + position.coords.longitude);
+  });
+} else {
+  console.log("Geolocation is not supported by this browser.");
+}
+
+//=====================
+// Function to set a cookie
+//=====================
+
+function setCookie(cname, cvalue, exdays) {
+  let now = new Date();
+  now.setTime(now.getTime() + exdays * 24 * 60 * 60 * 1000); // Calculate expiration
+  let expires = "expires=" + now.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+//=====================
+// Function to get a cookie
+//=====================
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i].trim();
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+//=====================
+// Function to delete a cookie
+//=====================
+
+function deleteCookie(cname) {
+  document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
